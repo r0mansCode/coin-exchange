@@ -3,8 +3,18 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Td = styled.td`
-  border: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
   width: 25vh;
+`;
+
+ 
+const Button = styled.button`
+    font-size: 1rem;
+    margin: 0 1.5rem 0 1.5rem;
+    background-color: rgb(20, 56, 97);
+    color: #cccccc;
+    border: 1px solid #cccccc;
+    border-radius: 7px;
 `;
 
 export default function Coin(props) {
@@ -25,7 +35,7 @@ export default function Coin(props) {
               {props.showBalance ? <Td>{props.balance}</Td> : null}
               <Td>
                 <form action="#" method="POST">
-                <button onClick={handleClick}>Refresh</button>
+                <Button onClick={handleClick}>Refresh</Button>
                 </form>
               </Td>
             </tr>

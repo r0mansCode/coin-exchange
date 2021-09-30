@@ -7,11 +7,12 @@ import axios from 'axios';
 
 const Div = styled.div`
   text-align: center;
-  background-color: darkblue;
+  background-color: rgb(20, 56, 97);
   color: #cccccc;
 `;
 
-const COIN_COUNT = 5;
+
+const COIN_COUNT = 6;
 const formatPrice = price => parseFloat(Number(price).toFixed(4));
 
 
@@ -52,6 +53,10 @@ function App(props) {
     setShowBalance(oldValue => !oldValue);
   }
 
+  const handleHelicopter = () => {
+    setBalance(oldValue => oldValue + 1200);
+  }
+
   const handleRefresh = async (valueChangeId) => {
   const tickerUrl = `https://api.coinpaprika.com/v1/tickers/${valueChangeId}`;
   const response = await axios.get(tickerUrl);
@@ -75,7 +80,9 @@ function App(props) {
           <AccountBalance 
           amount={balance} 
           showBalance = {showBalance}
-          handleBalanceVisibilityChange={handleBalanceVisibilityChange} />
+          handleBalanceVisibilityChange={handleBalanceVisibilityChange}
+          handleHelicopter = {handleHelicopter} 
+          />
           <CoinList
            coinData={coinData}
            showBalance = {showBalance} 
