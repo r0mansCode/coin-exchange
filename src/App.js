@@ -88,6 +88,7 @@ function App(props) {
            coinData={coinData}
            showBalance = {showBalance} 
            handleRefresh={handleRefresh} />
+           <p>*The prices are refreshing every few minutes</p>
            <Footer />
       </Div>
     );
