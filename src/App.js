@@ -4,6 +4,7 @@ import AccountBalance from './components/AccountBalance/AccountBalance'
 import ExchangeHeader from './components/ExchangeHeader/ExchangeHeader';
 import styled from 'styled-components';
 import axios from 'axios';
+import Footer from './components/Footer/Footer';
 
 const Div = styled.div`
   text-align: center;
@@ -87,6 +88,7 @@ function App(props) {
            coinData={coinData}
            showBalance = {showBalance} 
            handleRefresh={handleRefresh} />
+           <Footer />
       </Div>
     );
   }
