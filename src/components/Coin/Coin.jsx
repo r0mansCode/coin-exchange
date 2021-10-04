@@ -3,41 +3,58 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Td = styled.td`
-  border-bottom: 1px solid #cccccc;
-  width: 25vh;
+    border: 1px solid #cccccc;
+    width 14vw;
 `;
 
+const TdControls = styled(Td)`
+    width: 34vw;
+`;
+
+const TdName = styled(Td)`
+    width: 24vw;
+`;
  
 const Button = styled.button`
     font-size: 1rem;
     margin: 0 1.5rem 0 1.5rem;
-    background-color: rgb(20, 56, 97);
-    color: #cccccc;
     border: 1px solid #cccccc;
     border-radius: 7px;
 `;
 
 export default function Coin(props) {
 
-  const handleClick = (event) => {
+  const handleRefresh = (event) => {
   //Prevent the degault action of submitting the form (refreshing the page)
   event.preventDefault();
-
   props.handleRefresh(props.tickerId);
+}
 
+const handleBuy = (event) => {
+  //Prevent the degault action of submitting the form (refreshing the page)
+  event.preventDefault();
+  props.handleTransaction(true, props.tickerId);
+}
+
+const handleSell = (event) => {
+  //Prevent the degault action of submitting the form (refreshing the page)
+  event.preventDefault();
+  props.handleTransaction(false, props.tickerId);
 }
 
         return (
             <tr>
-              <Td>{props.name}</Td>
+              <TdName>{props.name}</TdName>
               <Td>{props.ticker}</Td>
               <Td>${props.price}</Td>
-              {props.showBalance ? <Td>{props.balance}</Td> : null}
-              <Td>
+              <Td>{props.showBalance ? props.balance : '-'}</Td>
+              <TdControls>
                 <form action="#" method="POST">
-                <Button onClick={handleClick}>Refresh</Button>
+                <Button className="btn btn-info" onClick={handleRefresh}>Refresh</Button>
+                <Button className="btn btn-warning" onClick={handleBuy}>Buy</Button>
+                <Button className="btn btn-danger" onClick={handleSell}>Sell</Button>
                 </form>
-              </Td>
+              </TdControls>
             </tr>
           );
         }

@@ -9,7 +9,8 @@ const Img = styled.img`
 
 const Header = styled.header`
     background-color: #282c34;
-    min-height: 20vh;
+    min-height: 10vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
