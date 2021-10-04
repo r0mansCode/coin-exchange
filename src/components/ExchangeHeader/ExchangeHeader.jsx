@@ -14,13 +14,15 @@ const Header = styled.header`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    font-size: (10px + 2vmin);
+    justify-content: flex-start;
     color: white;
 `;
 
 const H1 = styled.h1`
-  font-size: 4rem;
+  font-size: 3rem;
+  line-height: 8rem;
+  fold-weight: bold;
+  min-width: 300px;
 `;  
 
 
